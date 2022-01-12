@@ -27,18 +27,19 @@ class _HelloListViewState extends State<HelloListView> {
           IconButton(
             onPressed: () {
               print("Lista");
-              setState() {
+              setState(() {
                 _gridView = false;
-              }
+              });
+
             },
             icon: Icon(Icons.list),
           ),
           IconButton(
             onPressed: () {
               print("Grid");
-              setState() {
+              setState(() {
                 _gridView = true;
-              }
+              });
             },
             icon: Icon(Icons.grid_on),
           ),

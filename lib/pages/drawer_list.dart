@@ -16,51 +16,41 @@ class DrawerList extends StatelessWidget {
                 backgroundImage: AssetImage("assets/images/dog1.png"),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.star),
-              title: Text("Favoritos"),
-              subtitle: Text("mais informações..."),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                print("item 1");
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.help),
-              title: Text("Ajuda"),
-              subtitle: Text("mais informações..."),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                print("item 2");
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text("Logout"),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                print("item 3");
-                Navigator.pop(context);
-              },
-            ),
+            _listTile(Icons.star, Icons.arrow_forward, "Favoritos",
+                "Mais informações", () {
+              Navigator.pop(context);
+              print("favoritos");
+            }),
+            _listTile(
+                Icons.help, Icons.arrow_forward, "Ajuda", "Mais informações..",
+                () {
+              print("item 2");
+              Navigator.pop(context);
+            }),
+            _listTile(Icons.exit_to_app, Icons.arrow_forward, "Logout",
+                "Mais informações", () {
+              print("item 3");
+              Navigator.pop(context);
+            }),
+            _listTile(Icons.construction, Icons.arrow_forward, "config",
+                "ifo ", () {
+              print("config");
+              Navigator.pop(context);
+            })
           ],
         ),
       ),
     );
   }
 
-  _listTile(context, IconData leading, IconData trailling, String title,
-      String subtitle, Function onTap) {
+  _listTile(IconData leading, IconData trailling, String title, String subtitle,
+      Function onTap) {
     return ListTile(
       leading: Icon(leading),
       title: Text(title),
       subtitle: Text(subtitle),
       trailing: Icon(trailling),
-      onTap: () {
-        onTap();
-      },
+      onTap: () => onTap(),
     );
   }
 }
